@@ -2,7 +2,7 @@
   "name": "back_model",
   "version": "1.0.0",
   "description": "Modelo de Back-End com dependências pré instaladas",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start:dev": "node index",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
