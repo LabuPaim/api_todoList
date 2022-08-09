@@ -1,7 +1,7 @@
 require("dotenv").config();
 import mongoose from "mongoose"
 
-const connectDB: any = () => {
+const connectDB = () => {
   const teste: any = process.env.DATABASE_URL
   const options: object = {
     useNewUrlParser: true,
