@@ -1,6 +1,6 @@
 import serviceCharacters from './characters.service';
 
-const controllerCreateCharacter = async (req:Request, res: Response, next) => {
+const controllerCreateCharacter = async (req:any, res: any, next:any) => {
   try {
     const { name, imageUrl } = req.body;
 
@@ -18,7 +18,7 @@ const controllerCreateCharacter = async (req:Request, res: Response, next) => {
   }
 };
 
-const controllerAllCharacters = async (req:Request, res: Response, next) => {
+const controllerAllCharacters = async (req:any, res: any, next:any) => {
   const characterAll = await serviceCharacters.serviceAllCharacters();
   if (characterAll.length === 0) {
     return res.status(404).send({ message: 'Não existe nenhuma Character cadastrado' });
@@ -26,7 +26,7 @@ const controllerAllCharacters = async (req:Request, res: Response, next) => {
 
   res.send({
     results: characterAll.map((character) => ({
-      id: character._id,
+      id: character.id,
       name: character.name,
       imageUrl: character.imageUrl,
     })),
@@ -34,7 +34,7 @@ const controllerAllCharacters = async (req:Request, res: Response, next) => {
   });
 };
 
-const controllerByidCharacter = async (req:Request, res: Response, next) => {
+const controllerByidCharacter = async (req:any, res: any, next:any) => {
   const paramID = req.json()
   const selectCharacter = await serviceCharacters.serviceByIdCharacter(paramID);
   if (!selectCharacter) {
@@ -43,7 +43,7 @@ const controllerByidCharacter = async (req:Request, res: Response, next) => {
   res.send(selectCharacter);
 };
 
-const controllerUpdateCharacter = async (req:Request, res: Response, next) => {
+const controllerUpdateCharacter = async (req:any, res: any, next:any) => {
   const paramID: string = req.params.id;
   const characterEdited: object = req.body;
   const characterUpdate = await serviceCharacters.serviceUpdateCharacter(
@@ -53,13 +53,13 @@ const controllerUpdateCharacter = async (req:Request, res: Response, next) => {
   res.send(characterUpdate);
 };
 
-const controllerDeleteCharacter = async (req:Request, res: Response, next) => {
+const controllerDeleteCharacter = async (req:any, res: any, next:any) => {
   const paramID = req.params.id;
   await serviceCharacters.serviceDeleteCharacter(paramID);
   res.send({ message: 'Usuário deletado com sucesso!' });
 };
 
-const controllerSearchByNameCharacter = async (req:Request, res: Response, next) => {
+const controllerSearchByNameCharacter = async (req:any, res: any, next:any) => {
   const param__NAME = req.query.name;
   const selectCharacter = await serviceCharacters.serviceSearchByNameCharacter(param__NAME);
   console.log(selectCharacter);
@@ -68,7 +68,7 @@ const controllerSearchByNameCharacter = async (req:Request, res: Response, next)
   }
   res.send({
     characters: selectCharacter.map((character) => ({
-      id: character._id,
+      id: character.id,
       user: character.user,
       name: character.name,
       imageUrl: character.imageUrl,
