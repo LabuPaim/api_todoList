@@ -7,13 +7,10 @@ import characterRoute from './characters/characters.routes';
 import swaggerRouter from './swagger/swagger.routes'
 
 const port = process.env.PORT || 3000;
-
 const app = express();
-
 db();
 
 app.use(cors());
-
 app.use(express.json());
 
 app.use('/characters', characterRoute);
