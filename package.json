@@ -4,12 +4,12 @@
   "description": "Modelo de Back-End com dependências pré instaladas",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start:dev": "node index",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "npx tsc",
     "build-and-run": "npm run build && npm start",
     "postinstall": "npm run build",
-    "start:dev": "ts-node index.ts"
+    "start": "ts-node index.ts"
   },
   "repository": {
     "type": "git",
