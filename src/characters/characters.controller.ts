@@ -13,7 +13,7 @@ const controllerCreateCharacter = async (req:any, res: any, next:any) => {
       message: 'created',
       characters: { id, name, imageUrl },
     });
-  } catch (err) {
+  } catch (err:any) {
     res.status(500).send({ message: err.message });
   }
 };
@@ -68,8 +68,7 @@ const controllerSearchByNameCharacter = async (req:any, res: any, next:any) => {
   }
   res.send({
     characters: selectCharacter.map((character) => ({
-      id: character.id,
-      user: character.user,
+      id: character.id,      
       name: character.name,
       imageUrl: character.imageUrl,
     })),
