@@ -5,11 +5,11 @@
   "main": "index.ts",
   "scripts": {
     "start:dev": "node index",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "npx tsc",
     "build-and-run": "npm run build && npm start",
     "postinstall": "npm run build",
-    "start": "ts-node index.ts"
+    "dev": "ts-node index.ts"
   },
   "repository": {
     "type": "git",
