@@ -1,10 +1,15 @@
 import Characters from './Characters';
 
-
-
-const serviceCreateCharacter = (name:string, imageUrl:string) => Characters.create({ name, imageUrl });
+const serviceCreateCharacter = (
+  name: string,
+  stack: string,
+  hardSkill: string,
+  softSkill: string,
+  description: string,
+  imageUrl: string,
+) => Characters.create({ name, stack, hardSkill, softSkill, description, imageUrl });
 const serviceAllCharacters = async () => {
-  const character = await Characters.find()
+  const character = await Characters.find();
   return character;
 };
 
@@ -13,18 +18,18 @@ const serviceByIdCharacter = async (id: string) => {
   return character;
 };
 
-const serviceUpdateCharacter = async (id:string, characterEdited:object) => {
+const serviceUpdateCharacter = async (id: string, characterEdited: object) => {
   const characterUpdate = await Characters.findByIdAndUpdate(id, characterEdited);
   return characterUpdate;
 };
 
-const serviceDeleteCharacter = async (id:string) => {
+const serviceDeleteCharacter = async (id: string) => {
   return await Characters.findByIdAndDelete(id);
 };
 
-const serviceSearchByNameCharacter = async (name:string) => {
+const serviceSearchByNameCharacter = async (name: string) => {
   const character = await Characters.find({ name: { $regex: `${name || ''}`, $options: 'i' } });
-    console.log(character);
+  console.log(character);
   return character;
 };
 
