@@ -2,10 +2,14 @@ import serviceCharacters from './characters.service';
 
 const controllerCreateCharacter = async (req:any, res: any, next:any) => {
   try {
-    const { name, imageUrl } = req.body;
+    const { name, stack, hardSkill, softSkill, description, imageUrl } = req.body;
 
     const { id } = await serviceCharacters.serviceCreateCharacter(
       name,
+      stack,
+      hardSkill,
+      softSkill,
+      description,
       imageUrl,
     );
 
