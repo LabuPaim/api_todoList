@@ -5,6 +5,22 @@ const CharacterSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  stack: {
+    type: String,
+    required: true,
+  },
+  hardSkill: {
+    type: String,
+    required: true,
+  },
+  softSkill: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
 
   imageUrl: {
     type: String,

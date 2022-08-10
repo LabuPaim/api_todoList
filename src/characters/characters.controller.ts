@@ -28,6 +28,10 @@ const controllerAllCharacters = async (req:any, res: any, next:any) => {
     results: characterAll.map((character) => ({
       id: character.id,
       name: character.name,
+      stack: character.stack,
+      hardSkill: character.hardSkill,
+      softSkill: character.softSkill,
+      description: character.description,
       imageUrl: character.imageUrl,
     })),
     total: characterAll.length,
@@ -68,8 +72,12 @@ const controllerSearchByNameCharacter = async (req:any, res: any, next:any) => {
   }
   res.send({
     characters: selectCharacter.map((character) => ({
-      id: character.id,      
+      id: character.id,
       name: character.name,
+      stack: character.stack,
+      hardSkill: character.hardSkill,
+      softSkill: character.softSkill,
+      description: character.description,
       imageUrl: character.imageUrl,
     })),
     total: selectCharacter.length,
