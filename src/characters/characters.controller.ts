@@ -35,7 +35,7 @@ const controllerAllCharacters = async (req:any, res: any, next:any) => {
 };
 
 const controllerByidCharacter = async (req:any, res: any, next:any) => {
-  const paramID = req.json()
+  const paramID: string = req.params.id;
   const selectCharacter = await serviceCharacters.serviceByIdCharacter(paramID);
   if (!selectCharacter) {
     return res.status(404).send({ message: 'Usuário não encontrado' });
