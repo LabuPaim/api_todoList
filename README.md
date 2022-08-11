@@ -4,12 +4,6 @@
 
 NodeJS | Express | Cors | JWT | Bcrypt | Nodemon | TypeScript | CRUD | MongoDB Atlas
 
-## Crie um repositório com esse template
-
-🔹 Clique em **Use this Template**
-
-🔹 Crie seu repositório normalmente
-
 
 
 ## Instalar o projeto
